@@ -2,7 +2,7 @@ Absolutely, Bharath! Here's a **polished, visually appealing README.md** designe
 
 ---
 
-```markdown
+
 <h1 align="center">🧠💬 MEDBOT</h1>
 
 <p align="center">
