@@ -1,5 +1,3 @@
-Absolutely, Bharath! Here's a **polished, visually appealing README.md** designed to showcase your MEDBOT project like a true product page. It balances professional clarity with a touch of flair—and is tailored for your GitHub repo at [`BharathOO7/MEDBOT`](https://github.com/BharathOO7/MEDBOT.git):
-
 ---
 
 
@@ -137,9 +135,6 @@ Built with precision and passion by **[Bharath Priyan K](https://github.com/Bhar
 - 🧬 Fine-tuned medical LLM support
 
 ---
-
-Want me to generate a custom logo for MEDBOT or design a hero banner for your repo? I can spin up visuals that reflect your brand style—or help you draft a GitHub Pages landing site to showcase it like a startup product. Let’s give MEDBOT the audience it deserves 😎
-```
 
 ---
 
