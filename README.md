@@ -1,141 +1,134 @@
+
 ---
-
-
-<h1 align="center">🧠💬 MEDBOT</h1>
+<h1 align="center">🏥 AI MED BOT</h1>
 
 <p align="center">
-  <em>Conversational Medical Chatbot powered by LangChain, Hugging Face, FAISS, and Streamlit</em><br>
-  <strong>A smarter way to search medical insights—context-aware, memory-enhanced, and user-friendly</strong>
+  <em>A Professional Medical RAG Assistant powered by LangChain, Mistral-7B, and FAISS</em><br>
+  <strong>Context-aware, Literature-based, and Clinically Structured Responses</strong>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/github/languages/top/BharathOO7/MEDBOT?color=blue" />
-  <img src="https://img.shields.io/github/last-commit/BharathOO7/MEDBOT" />
-  <img src="https://img.shields.io/github/issues/BharathOO7/MEDBOT" />
-  <img src="https://img.shields.io/github/stars/BharathOO7/MEDBOT?style=social" />
+  <img src="https://img.shields.io/badge/Python-3.12-blue?logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/Frontend-Streamlit-FF4B4B?logo=streamlit&logoColor=white" />
+  <img src="https://img.shields.io/badge/Framework-LangChain-FFEE00?logo=chainlink&logoColor=white" />
+  <img src="https://img.shields.io/badge/Vector%20DB-FAISS-04A1E6" />
 </p>
 
 ---
 
-## 🚀 Features
-
-- 🧠 **Conversational Memory**: Uses LangChain's memory module for enriched dialogues.
-- 📄 **Document-Aware Answers**: Context pulled directly from PDFs using FAISS.
-- 🧬 **Hugging Face LLM Integration**: Smart, generative responses tailored for medical queries.
-- 💻 **Streamlit Frontend**: Clean and interactive interface for user input/output.
-- 🔍 **Semantic Search**: Uses FAISS for efficient, high-relevance document matching.
-- 🧠 **LLM Memory Connector**: Seamless retrieval pipeline with HuggingFace + LangChain.
+## 🌐 Live Deployment
+Experience the bot live on Hugging Face Spaces:  
+🚀 **[AI MED BOT - Hugging Face Space](https://huggingface.co/spaces/BharathPriyanK/AI_MED_BOT)**
 
 ---
 
-## 📦 Installation
+## 🚀 Key Features
 
-> Recommended: Python 3.10+ with Pipenv installed
+- 🏥 **Advanced Medical UI**: Custom-styled healthcare interface with intuitive chat bubbles and sidebar controls.
+- 📄 **Evidence-Based Answers**: Retrieves context directly from medical PDFs to ensure accuracy.
+- 🧠 **Smart Query Routing**: Intelligently handles greetings vs. medical inquiries for a natural conversation.
+- 🔍 **Source Tracking**: Displays specific page references from medical literature for every response.
+- ⚡ **Mistral-7B Optimized**: Low-latency inference using Hugging Face Inference Endpoints.
 
+---
+
+## 📦 Installation & Setup
+
+> **Note:** This project is optimized for **Python 3.12**.
+
+### 1. Environment Preparation
 ```bash
 # Clone the repository
-git clone https://github.com/BharathOO7/MEDBOT.git
+git clone [https://github.com/BharathOO7/MEDBOT.git](https://github.com/BharathOO7/MEDBOT.git)
 cd MEDBOT
 
-# Install core dependencies
-python -m pipenv install langchain langchain_community langchain_huggingface faiss-cpu pypdf
-pipenv install sentence-transformers
+# Install Pipenv if you haven't already
+pip install pipenv
 
-# Activate environment
-python -m pipenv shell
+# Create environment and install dependencies using Python 3.12
+python -m pipenv install --python 3.12
+
 ```
 
----
+### 2. Configure Environment Variables
 
-## 🧠 Vector Store Creation
+Create a `.env` file in the root directory:
+
+```bash
+HUGGINGFACEHUB_API_TOKEN=your_huggingface_token_here
+
+```
+
+### 3. Build the Vector Memory
+
+Place your medical PDFs in the `data/` folder, then run:
 
 ```bash
 python -m pipenv run python create_memory_for_llm.py
+
 ```
 
-> This will ingest your medical PDFs and create FAISS indexes.
+*This processes the documents and generates the `vectorstore/` index.*
 
 ---
 
-## 🔌 Connect Memory with LLM
+## 🎮 Execution
+
+### Local Development
 
 ```bash
-python connect_memory_with_llm.py
+python -m pipenv run streamlit run app.py
+
 ```
 
-> Initializes memory-aware pipeline with document retriever and HuggingFace endpoint.
+### Project Structure
+
+| File | Role |
+| --- | --- |
+| `app.py` | Main Streamlit Application (UI & RAG Logic) |
+| `create_memory_for_llm.py` | Data Ingestion & FAISS Indexing |
+| `requirements.txt` | Cloud Deployment Dependencies |
+| `vectorstore/` | Pre-computed Medical Knowledge Base |
 
 ---
 
-## 🎮 Launch Streamlit App
+## 🛠️ Hugging Face Deployment Guide
 
-```bash
-streamlit run medibot.py
-```
-
-> Your chatbot is now live at `localhost:8501` (or via Streamlit Community Cloud).
-
----
-
-## ⚙️ Project Structure
-
-| File | Description |
-|------|-------------|
-| `medibot.py` | Streamlit UI |
-| `create_memory_for_llm.py` | Creates FAISS index from PDFs |
-| `connect_memory_with_llm.py` | Builds LangChain pipeline |
-| `.env.template` | Add your HuggingFace key here |
-| `README.md` | You're reading it! |
+1. **Create Space**: Choose the **Streamlit** SDK.
+2. **Upload Files**: Ensure `app.py`, `requirements.txt`, and the `vectorstore/` folder are at the root.
+3. **Set Secrets**: Go to **Settings > Variables and Secrets** and add `HUGGINGFACEHUB_API_TOKEN`.
+4. **App File**: Ensure your `README.md` YAML header (at the very top) specifies `app_file: app.py`.
 
 ---
 
-## 🔐 Environment Setup
+## 📌 Prompt Examples
 
-Create a `.env` file using `.env.template`:
-
-```bash
-HUGGINGFACE_API_KEY=your_token_here
-```
-
-> Never commit `.env`—it's ignored via `.gitignore`.
-
----
-
-## 📌 Prompt Ideas
-
-```text
-🩺 What are the symptoms of dengue in early stages?
-💊 How do I treat mild fever without medication?
-🧼 Precautions after surgical stitches removal?
-```
+* 🩺 *"What are the early warning signs of cardiovascular disease?"*
+* 💊 *"How should Ibuprofen be administered for mild inflammation?"*
+* 🧼 *"What are the standard post-operative care steps for minor skin grafts?"*
 
 ---
 
 ## 👨‍💻 Author
 
-Built with precision and passion by **[Bharath Priyan K](https://github.com/BharathOO7)**  
-🚀 Applied AI/ML Engineer at Bharath Marine Service Pvt. Ltd.
+**[Bharath Priyan K](https://github.com/BharathOO7)** 🚀  AI/ML Engineer | Expert in Generative AI & RAG Architectures
 
 ---
 
-## 🌐 Deploy on Streamlit Cloud
+## ⚠️ Medical Disclaimer
 
-1. Connect your GitHub repo: [`MEDBOT`](https://github.com/BharathOO7/MEDBOT.git)
-2. Choose branch: `main`
-3. App entry point: `medibot.py`
-4. Done ✅
+This AI is for **educational and research purposes only**. It analyzes medical literature but does not provide medical diagnoses or professional advice. In case of emergency, please contact professional healthcare services immediately.
 
----
-
-## 💡 Future Enhancements
-
-- 🔄 RAG pipeline with ChatML formatting
-- 📊 Analytics dashboard for user interactions
-- 🗂️ Multi-source PDF ingestion & filtering
-- 🧬 Fine-tuned medical LLM support
+```
 
 ---
 
----
+### What's New in this Version?
+1. **Python 3.12 Explicitly Mentioned**: The commands now guide the user to create the environment specifically with 3.12.
+2. **Hugging Face Integration**: Added a dedicated section for your live Space link and secret management.
+3. **RAG Logic Update**: Reflected the new greeting/medical routing logic we implemented.
+4. **Clean Visuals**: Used professional shields/badges and a table for the project structure.
 
-You can copy-paste this directly into your `README.md`. Want me to help polish the code snippets, deploy a live demo link, or stylize your repo homepage even more? I’m in—let’s make MEDBOT shine like a real product launch ✨
+**Would you like me to generate a specific list of medical libraries for your `requirements.txt` that works perfectly with Python 3.12?**
+
+```
